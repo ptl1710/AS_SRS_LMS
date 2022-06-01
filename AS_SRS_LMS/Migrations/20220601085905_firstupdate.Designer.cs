@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AS_SRS_LMS.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220601083617_firstupdate")]
+    [Migration("20220601085905_firstupdate")]
     partial class firstupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,9 +105,11 @@ namespace AS_SRS_LMS.Migrations
 
             modelBuilder.Entity("AS_SRS_LMS.Models.User", b =>
                 {
-                    b.HasOne("AS_SRS_LMS.Models.Class", null)
+                    b.HasOne("AS_SRS_LMS.Models.Class", "Class")
                         .WithMany("Users")
                         .HasForeignKey("ClassidClass");
+
+                    b.Navigation("Class");
                 });
 
             modelBuilder.Entity("AS_SRS_LMS.Models.Class", b =>

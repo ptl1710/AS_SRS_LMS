@@ -13,8 +13,7 @@ namespace AS_SRS_LMS.Models
         public float Time { get; set; }
         public string Unit { get; set; }
         public float Marks { get; set; }
-        public ICollection<User> Users { get; set; }
-        public ICollection<Subject> Subjects { get; set; }
+        
 
     }
 }

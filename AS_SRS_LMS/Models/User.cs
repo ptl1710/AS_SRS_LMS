@@ -18,5 +18,6 @@ namespace AS_SRS_LMS.Models
         public string Email { get; set; }
         public bool IsEmailConfirmed { get; set; }
         public string Roles { get; set; }
+        public Class Class { get; set; }
     }
 }

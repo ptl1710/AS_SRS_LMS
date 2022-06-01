@@ -10,7 +10,6 @@ namespace AS_SRS_LMS.Models
         public string idTestSchedule { get; set; }
         public string nameTestSchedule { get; set; }
         public DateTime testDay { get; set; }
-        public ICollection<Subject> Subjects { get; set; }
-        public ICollection<User> Users { get; set; }
+      
     }
 }

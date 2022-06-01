@@ -103,9 +103,11 @@ namespace AS_SRS_LMS.Migrations
 
             modelBuilder.Entity("AS_SRS_LMS.Models.User", b =>
                 {
-                    b.HasOne("AS_SRS_LMS.Models.Class", null)
+                    b.HasOne("AS_SRS_LMS.Models.Class", "Class")
                         .WithMany("Users")
                         .HasForeignKey("ClassidClass");
+
+                    b.Navigation("Class");
                 });
 
             modelBuilder.Entity("AS_SRS_LMS.Models.Class", b =>
