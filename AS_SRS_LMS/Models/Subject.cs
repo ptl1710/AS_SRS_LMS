@@ -9,6 +9,11 @@ namespace AS_SRS_LMS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]       
         public string idSubject { get; set; }
         public string SubjectName { get; set; }
-      
+        public int NumberOfPeriod { get; set; }
+
+        public List<detailSubject> detailSubjects { get; set; }
+
+        public List<Document> Documents { get; set; }
+
     }
 }

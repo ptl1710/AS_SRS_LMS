@@ -1,17 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AS_SRS_LMS.Models
 {
-    public class TestSchedule
+    public class Schedule
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string idTestSchedule { get; set; }
-        public DayOfWeek DayOfWeek { get; set; }
+        public int ScheduleId { get; set; }
+
         public DateTime Time { get; set; }
 
-        public List<Exam> Exam { get; set; }
+        public DayOfWeek DayOfWeek { get; set; }
 
+        [ForeignKey("detailSubject")]
+        public int DetailSubjectId { get; set; }
+        public detailSubject detailSubject { get; set; }
     }
 }
