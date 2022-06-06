@@ -6,14 +6,13 @@ namespace AS_SRS_LMS.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ScheduleId { get; set; }
+        public int scheduleId { get; set; }
 
         public DateTime Time { get; set; }
 
-        public DayOfWeek DayOfWeek { get; set; }
+        public DayOfWeek dayOfWeek { get; set; }
 
-        [ForeignKey("detailSubject")]
-        public int DetailSubjectId { get; set; }
-        public detailSubject detailSubject { get; set; }
+        public int subjectId { get; set; }
+        public Subject subject { get; set; }
     }
 }

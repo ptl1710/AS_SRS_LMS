@@ -2,13 +2,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace AS_SRS_LMS.Models
 {
-    public class Document
+    public class TypeExam
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string documentId { get; set; }
-        public string Link { get; set; }
-        public int subjectId { get; set; }
-        public Subject subject { get; set; }
+        public int typeExamId { get; set; }
+        public int typeName { get; set; }
+        public List<Exam> exam { get; set; }
     }
 }
