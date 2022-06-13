@@ -10,12 +10,11 @@ namespace AS_SRS_LMS.Models
         public float Score { get; set; }
         public DateTime examDate { get; set; }
 
-
         public int examId { get; set; }
-        public Exam exam { get; set; }
+        public Exam Exam { get; set; }
 
         public int userId { get; set; }
-        public User user { get; set; }
+        public User User { get; set; }
 
 
     }

@@ -8,6 +8,6 @@ namespace AS_SRS_LMS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int typeExamId { get; set; }
         public int typeName { get; set; }
-        public List<Exam> exam { get; set; }
+        public List<Exam> Exam { get; set; }
     }
 }

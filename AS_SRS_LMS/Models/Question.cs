@@ -16,6 +16,6 @@ namespace AS_SRS_LMS.Models
 
 
         public int subjectId { get; set; }
-        public Subject subject { get; set; }
+        public Subject Subject { get; set; }
     }
 }

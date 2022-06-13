@@ -18,13 +18,6 @@ namespace AS_SRS_LMS.Models
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<TypeExam> TypeExams { get; set; }
         public DbSet<User> Users { get; set; }
-        
-        
-        
-        
-        
-        
-        
-        
+
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AS_SRS_LMS.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220606043222_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220609042023_firstDB")]
+    partial class firstDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -302,7 +302,19 @@ namespace AS_SRS_LMS.Migrations
                     b.Property<bool>("IsEmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("classId")
+                    b.Property<string>("PasswordResetToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ResetTokenExpires")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VerificationToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("VerifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("classId")
                         .HasColumnType("int");
 
                     b.Property<string>("firstName")
@@ -416,19 +428,15 @@ namespace AS_SRS_LMS.Migrations
 
             modelBuilder.Entity("AS_SRS_LMS.Models.User", b =>
                 {
-                    b.HasOne("AS_SRS_LMS.Models.Class", "Class")
+                    b.HasOne("AS_SRS_LMS.Models.Class", null)
                         .WithMany("users")
-                        .HasForeignKey("classId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("classId");
 
                     b.HasOne("AS_SRS_LMS.Models.Role", "role")
                         .WithMany("user")
                         .HasForeignKey("roleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Class");
 
                     b.Navigation("role");
                 });

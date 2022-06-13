@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AS_SRS_LMS.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class firstDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -185,8 +185,12 @@ namespace AS_SRS_LMS.Migrations
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsEmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    VerificationToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VerifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PasswordResetToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ResetTokenExpires = table.Column<DateTime>(type: "datetime2", nullable: true),
                     roleId = table.Column<int>(type: "int", nullable: false),
-                    classId = table.Column<int>(type: "int", nullable: false)
+                    classId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -195,8 +199,7 @@ namespace AS_SRS_LMS.Migrations
                         name: "FK_Users_Class_classId",
                         column: x => x.classId,
                         principalTable: "Class",
-                        principalColumn: "classId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "classId");
                     table.ForeignKey(
                         name: "FK_Users_Role_roleId",
                         column: x => x.roleId,

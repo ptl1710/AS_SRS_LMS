@@ -15,10 +15,10 @@ namespace AS_SRS_LMS.Models
         public bool Status { get; set; }
 
         public int subjectId { get; set; }
-        public Subject subject { get; set; }
+        public Subject Subject { get; set; }
 
         public int typeExamId { get; set; }
-        public TypeExam typeExam { get; set; }
+        public TypeExam TypeExam { get; set; }
 
 
     }

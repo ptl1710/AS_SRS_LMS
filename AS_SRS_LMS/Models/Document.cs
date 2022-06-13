@@ -9,6 +9,6 @@ namespace AS_SRS_LMS.Models
         public string documentId { get; set; }
         public string Link { get; set; }
         public int subjectId { get; set; }
-        public Subject subject { get; set; }
+        public Subject Subject { get; set; }
     }
 }
