@@ -7,14 +7,14 @@ namespace AS_SRS_LMS.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int classId { get; set; }
-        public string className { get; set; }
-        public DateTime startDate { get; set; }
-        public DateTime endDate { get; set; }
+        public string ClassId { get; set; }
+        public string NameClass { get; set; }
+        public string Link { get; set; }
+        public int Amount { get; set; }
         public bool Status { get; set; }
-
-        public int subjectId { get; set; }
-        public Subject Subject { get; set; }
+        public int IdSubject { get; set; }
+        public Subject subject { get; set; }
+        public List<User> users { get; set; }
 
 
 

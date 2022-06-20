@@ -1,4 +1,5 @@
-﻿using AS_SRS_LMS.Models;
+﻿using AS_SRS_LMS.Interface;
+using AS_SRS_LMS.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,49 +9,50 @@ namespace AS_SRS_LMS.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly DataContext _context;
-        private readonly IUserRegister _userRegister;
-        public UserController(IUserRegister userRegister, DataContext context)
+        private readonly DataContext _dataContext;
+        private readonly IUser _user;
+        public UserController(IUser user)
         {
-            _userRegister = userRegister;
-            _context = context;
+            _user = user;
         }
         [HttpGet("get-all-user")]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
-            var users = _userRegister.GetAllUser();
+            var users = _user.GetAllUser();
             return Ok(users);
         }
         [HttpPost("register")]
-        public IActionResult Register(UserRegisterRequest request)
+        public  IActionResult Register(UserRegisterRequest request)
         {
-            _userRegister.AddUser(request);
-            return Ok(new { message = "Tạo Người Dùng Thành Công" });
-        }
-        [HttpPost("verify")]
-        public IActionResult Verify(string token)
-        {
-            _userRegister.Verify(token);
-            return Ok(new { message = "Xác Thực Thành Công !" });
+            
+            int register =_user.Register(request);
+            if(register == 0)
+            {
+                return BadRequest(new { message = "Người Dùng Đã Tồn Tại!!!" });
+            }
+            return Ok(new { message = "Tạo Thành Công!!!" });
         }
         [HttpPost("login")]
         public IActionResult Login(UserLoginRequest request)
         {
-
-            _userRegister.Login(request);
-            return Ok(new { message = "Đăng Nhập Thành Công !" });
+            int login = _user.Login(request);
+            if (login == 0)
+            {
+                return BadRequest(new { message = "Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác!!!" });
+            }
+            return Ok(new { message = "Đăng Nhập Thành Công" });
         }
         [HttpPost("forgot-password")]
-        public IActionResult ForgotPassword(string email)
+        public IActionResult Forgot(string email, string phone, string newpass)
         {
-            _userRegister.ForgotPassword(email);
-            return Ok(new { message = "Bạn Có Thể Đặt Lại Mật Khẩu Của Mình Ngay Bây Giờ" });
+
+            int forgot = _user.ForgotPassword(email, phone, newpass);
+            if (forgot == 0)
+            {
+                return BadRequest(new { message = "Tài Khoản Không Tồn Tại!!!" });
+            }
+            return Ok(new { message = "Đổi Mật Khẩu Thành Công!!!" });
         }
-        [HttpPost("reset-password")]
-        public IActionResult ResettPassword(ResetPasswordRequest request)
-        {
-            _userRegister.ResetPassword(request);
-            return Ok(new { message = "Đặt Lại Mật Khẩu Thành Công !!!" });
-        }
+
     }
 }

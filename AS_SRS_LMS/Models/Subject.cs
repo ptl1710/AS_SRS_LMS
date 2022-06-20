@@ -7,16 +7,10 @@ namespace AS_SRS_LMS.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int subjectId { get; set; }
-        public string subjectName { get; set; }
-        public int numberOfPeriod { get; set; }
-
-        public int examId { get; set; }
-        public Exam Exam { get; set; }
-        public List<Class> Class { get; set; }
-        public List<Question> Questions { get; set; }
-        public List<Schedule> Schedules { get; set; }
-        public List<Document> Documents { get; set; }
+        public string SubjectId { get; set; }
+        public string SubjectName { get; set; }
+        public string Period { get; set; }
+        public ICollection<Class> classes { get; set; }
 
 
     }

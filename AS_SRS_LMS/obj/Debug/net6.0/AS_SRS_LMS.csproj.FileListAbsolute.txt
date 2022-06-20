@@ -59,3 +59,5 @@ D:\Thuc tap\AS_SRS_LMS\AS_SRS_LMS\obj\Debug\net6.0\refint\AS_SRS_LMS.dll
 D:\Thuc tap\AS_SRS_LMS\AS_SRS_LMS\obj\Debug\net6.0\AS_SRS_LMS.pdb
 D:\Thuc tap\AS_SRS_LMS\AS_SRS_LMS\obj\Debug\net6.0\AS_SRS_LMS.genruntimeconfig.cache
 D:\Thuc tap\AS_SRS_LMS\AS_SRS_LMS\obj\Debug\net6.0\ref\AS_SRS_LMS.dll
+D:\Thuc tap\AS_SRS_LMS\AS_SRS_LMS\bin\Debug\net6.0\Microsoft.Practices.ServiceLocation.dll
+D:\Thuc tap\AS_SRS_LMS\AS_SRS_LMS\bin\Debug\net6.0\XAct.Core.PCL.dll
